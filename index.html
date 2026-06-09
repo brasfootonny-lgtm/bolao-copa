@@ -51,16 +51,12 @@ fetch(API_URL)
 
       html += `
         <div>
-          ID: ${j.id}
+          ID: ${j.id} | Rodada: ${j.rodada}
         </div>
       `;
     });
 
     document.getElementById("jogos").innerHTML = html;
-  })
-  .catch(err => {
-    document.getElementById("jogos").innerHTML =
-      "Erro: " + err.message;
   });
 
 </script>
