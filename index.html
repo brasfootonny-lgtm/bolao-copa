@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Bolão Copa</title>
+
+  <style>
+    body{
+      font-family: Arial;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .jogo{
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 10px;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .placar{
+      width: 40px;
+      text-align: center;
+    }
+
+    .time{
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>🏆 Bolão Copa</h2>
+
+<div id="jogos">Carregando...</div>
+
+<script>
+
+const API_URL = "https://script.google.com/macros/s/AKfycbyzZAcf7VSLL8aNK7IHG7H5wFrZfQvdBnsMsEJkqw0/dev";
+
+fetch(API_URL)
+  .then(res => res.json())
+  .then(jogos => {
+
+    let html = "";
+
+    jogos.forEach(j => {
+
+      let rodada = j[1];
+      let grupo = j[2];
+      let casa = j[5];
+      let fora = j[8];
+
+      html += `
+        <div class="jogo">
+          <div class="time">${casa}</div>
+
+          <div>
+            <input class="placar" type="number"> x
+            <input class="placar" type="number">
+          </div>
+
+          <div class="time">${fora}</div>
+        </div>
+      `;
+    });
+
+    document.getElementById("jogos").innerHTML = html;
+  })
+  .catch(err => {
+    document.getElementById("jogos").innerHTML =
+      "Erro ao carregar jogos";
+  });
+
+</script>
+
+</body>
+</html>
