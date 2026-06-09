@@ -49,17 +49,23 @@ fetch(API_URL)
 
     jogos.forEach(j => {
 
-      html += `
-        <div>
-          ID: ${j.id}
-          | Rodada: ${j.rodada}
-          | Grupo: ${j.grupo}
-          | Dia: ${j.dia}
-          | Hora: ${j.hora}
-          | Casa: ${j.casa}
-          | FlagCasa: ${j.flagCasa}
-        </div>
-      `;
+html += `
+  <div>
+    ID: ${j.id}
+    | Rodada: ${j.rodada}
+    | Grupo: ${j.grupo}
+    | Dia: ${j.dia}
+    | Hora: ${j.hora}
+    | Casa: ${j.casa}
+
+    <img
+      src="${j.flagCasa}"
+      width="28"
+      height="18"
+      style="vertical-align:middle;margin-left:5px;"
+    >
+  </div>
+`;
     });
 
     document.getElementById("jogos").innerHTML = html;
