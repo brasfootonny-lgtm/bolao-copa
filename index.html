@@ -57,25 +57,25 @@ html += `
     | Dia: ${j.dia}
     | Hora: ${j.hora}
 
-    <img
-      src="${j.flagCasa}"
-      width="28"
-      height="18"
-      style="vertical-align:middle;margin-left:5px;"
-    >
+${j.casa}
 
-    ${j.casa}
+<img
+  src="${j.flagCasa}"
+  width="28"
+  height="18"
+  style="vertical-align:middle;margin-left:5px;"
+>
 
-    x
+x
 
-    ${j.fora}
+<img
+  src="${j.flagFora}"
+  width="28"
+  height="18"
+  style="vertical-align:middle;margin-right:5px;"
+>
 
-    <img
-      src="${j.flagFora}"
-      width="28"
-      height="18"
-      style="vertical-align:middle;margin-left:5px;"
-    >
+${j.fora}
   </div>
 `;
     });
