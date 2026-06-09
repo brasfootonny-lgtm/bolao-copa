@@ -50,25 +50,28 @@ fetch(API_URL)
 
     jogos.forEach(j => {
 
+      let id = j[0];
       let rodada = j[1];
-      let casa = j[2];
-      let fora = j[3];
+      let grupo = j[2];
+      let dia = j[3];
 
       if (rodada !== rodadaAtual) {
         rodadaAtual = rodada;
-        html += `<div class="rodada">Rodada ${rodada}</div>`;
+        html += `<div class="rodada">Rodada ${rodada} | Grupo ${grupo}</div>`;
       }
 
       html += `
         <div class="jogo">
-          <div class="time">${casa}</div>
+          <div class="time">
+            ID: ${id} | Dia: ${dia}
+          </div>
 
           <div>
             <input class="placar" type="number"> x
             <input class="placar" type="number">
           </div>
 
-          <div class="time">${fora}</div>
+          <div class="time"></div>
         </div>
       `;
     });
