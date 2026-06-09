@@ -49,21 +49,16 @@ fetch(API_URL)
 
     jogos.forEach(j => {
 
-      let rodada = j[1];
-      let grupo = j[2];
-      let casa = j[5];
-      let fora = j[8];
-
       html += `
         <div class="jogo">
-          <div class="time">${casa}</div>
+          <div class="time">${j.casa}</div>
 
           <div>
             <input class="placar" type="number"> x
             <input class="placar" type="number">
           </div>
 
-          <div class="time">${fora}</div>
+          <div class="time">${j.fora}</div>
         </div>
       `;
     });
@@ -72,7 +67,7 @@ fetch(API_URL)
   })
   .catch(err => {
     document.getElementById("jogos").innerHTML =
-      "Erro ao carregar jogos";
+      "Erro: " + err.message;
   });
 
 </script>
