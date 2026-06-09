@@ -46,11 +46,18 @@ fetch(API_URL)
   .then(jogos => {
 
     let html = "";
+    let rodadaAtual = "";
 
     jogos.forEach(j => {
 
-      let casa = j[0];
-      let fora = j[1];
+      let rodada = j[1];
+      let casa = j[2];
+      let fora = j[3];
+
+      if (rodada !== rodadaAtual) {
+        rodadaAtual = rodada;
+        html += `<div class="rodada">Rodada ${rodada}</div>`;
+      }
 
       html += `
         <div class="jogo">
