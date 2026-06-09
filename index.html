@@ -49,16 +49,19 @@ fetch(API_URL)
 
     jogos.forEach(j => {
 
+      let casa = j[0];
+      let fora = j[1];
+
       html += `
         <div class="jogo">
-          <div class="time">${j.casa}</div>
+          <div class="time">${casa}</div>
 
           <div>
             <input class="placar" type="number"> x
             <input class="placar" type="number">
           </div>
 
-          <div class="time">${j.fora}</div>
+          <div class="time">${fora}</div>
         </div>
       `;
     });
