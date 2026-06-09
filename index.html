@@ -45,20 +45,22 @@ fetch(API_URL)
   .then(res => res.json())
   .then(jogos => {
 
+    console.log(jogos);
+
     let html = "";
 
     jogos.forEach(j => {
 
       html += `
         <div class="jogo">
-          <div class="time">${j.casa}</div>
+          <div class="time">CASA: ${JSON.stringify(j.casa)}</div>
 
           <div>
             <input class="placar" type="number"> x
             <input class="placar" type="number">
           </div>
 
-          <div class="time">${j.fora}</div>
+          <div class="time">FORA: ${JSON.stringify(j.fora)}</div>
         </div>
       `;
     });
@@ -66,8 +68,7 @@ fetch(API_URL)
     document.getElementById("jogos").innerHTML = html;
   })
   .catch(err => {
-    document.getElementById("jogos").innerHTML =
-      "Erro: " + err.message;
+    console.log(err);
   });
 
 </script>
