@@ -39,12 +39,31 @@
   padding:8px;
   font-size:14px;
 }
+.participante{
+  display:grid;
+  gap:10px;
+  margin-bottom:25px;
+}
+
+.participante input{
+  padding:8px;
+  font-size:14px;
+}    
   </style>
 </head>
 
 <body>
 
 <h2>🏆 Bolão Copa</h2>
+<div class="participante">
+
+  <label>Nome/Apelido:</label>
+  <input type="text" id="nome">
+
+  <label>WhatsApp/E-mail:</label>
+  <input type="text" id="contato">
+
+</div>  
 
 <div id="jogos">Carregando...</div>
 <h2>🏆 Palpites Extras</h2>
