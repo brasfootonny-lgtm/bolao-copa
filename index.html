@@ -46,31 +46,12 @@ fetch(API_URL)
   .then(jogos => {
 
     let html = "";
-    let rodadaAtual = "";
 
     jogos.forEach(j => {
 
-      if (j.rodada !== rodadaAtual) {
-        rodadaAtual = j.rodada;
-        html += `<div class="rodada">Rodada ${j.rodada} | Grupo ${j.grupo}</div>`;
-      }
-
       html += `
-        <div class="jogo">
-
-          <div class="time">
-            ${j.casa}
-          </div>
-
-          <div>
-            <input class="placar" type="number"> x
-            <input class="placar" type="number">
-          </div>
-
-          <div class="time">
-            ${j.fora}
-          </div>
-
+        <div>
+          ID: ${j.id}
         </div>
       `;
     });
@@ -79,7 +60,7 @@ fetch(API_URL)
   })
   .catch(err => {
     document.getElementById("jogos").innerHTML =
-      "Erro ao carregar jogos: " + err.message;
+      "Erro: " + err.message;
   });
 
 </script>
