@@ -28,6 +28,17 @@
     .time{
       font-weight: bold;
     }
+
+    .extras{
+  margin-top:30px;
+  display:grid;
+  gap:10px;
+}
+
+.extras input{
+  padding:8px;
+  font-size:14px;
+}
   </style>
 </head>
 
@@ -36,6 +47,32 @@
 <h2>🏆 Bolão Copa</h2>
 
 <div id="jogos">Carregando...</div>
+<h2>🏆 Palpites Extras</h2>
+
+<div class="extras">
+
+  <label>Campeão:</label>
+  <input type="text" id="campeao">
+
+  <label>Vice-Campeão:</label>
+  <input type="text" id="vice">
+
+  <label>Terceiro Lugar:</label>
+  <input type="text" id="terceiro">
+
+  <label>Quarto Lugar:</label>
+  <input type="text" id="quarto">
+
+  <label>Artilheiro (Opção 1):</label>
+  <input type="text" id="art1">
+
+  <label>Artilheiro (Opção 2):</label>
+  <input type="text" id="art2">
+
+  <label>Artilheiro (Opção 3):</label>
+  <input type="text" id="art3">
+
+</div>  
 
 <script>
 
