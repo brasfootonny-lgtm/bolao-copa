@@ -163,6 +163,43 @@ html += `
     document.getElementById("jogos").innerHTML = html;
   });
 
+  const URL_ENVIO =
+  "https://script.google.com/macros/s/AKfycbwVDbVDvuSCQbH-P7X76zhcTr2CcmWyaJed69pIMIbl1Uf8r469IZyHsUIZYLlnJw7M/exec";
+
+document
+  .getElementById("enviarPalpite")
+  .addEventListener("click", async () => {
+
+    const dados = {
+      nome: document.getElementById("nome").value,
+      contato: document.getElementById("contato").value,
+
+      campeao: document.getElementById("campeao").value,
+      vice: document.getElementById("vice").value,
+      terceiro: document.getElementById("terceiro").value,
+      quarto: document.getElementById("quarto").value,
+
+      art1: document.getElementById("art1").value,
+      art2: document.getElementById("art2").value,
+      art3: document.getElementById("art3").value
+    };
+
+    try {
+
+      await fetch(URL_ENVIO, {
+        method: "POST",
+        body: JSON.stringify(dados)
+      });
+
+      alert("Palpite enviado com sucesso!");
+
+    } catch(err) {
+
+      alert("Erro ao enviar palpite");
+
+    }
+  });
+
 </script>
 
 </body>
