@@ -141,19 +141,21 @@ html += `
         style="vertical-align:middle;margin-left:5px;"
       >
 
-      <input
-        type="number"
-        min="0"
-        class="placar"
-      >
+<input
+  type="number"
+  min="0"
+  class="placar-casa"
+  data-id="${j.id}"
+>
 
-      x
+x
 
-      <input
-        type="number"
-        min="0"
-        class="placar"
-      >
+<input
+  type="number"
+  min="0"
+  class="placar-fora"
+  data-id="${j.id}"
+>
 
       <img
         src="${j.flagFora}"
@@ -196,6 +198,28 @@ document
 
     try {
 
+      const jogos = [];
+
+document
+  .querySelectorAll(".placar-casa")
+  .forEach(inputCasa => {
+
+    const id = inputCasa.dataset.id;
+
+    const inputFora =
+      document.querySelector(
+        `.placar-fora[data-id="${id}"]`
+      );
+
+    jogos.push({
+      id: id,
+      casa: inputCasa.value,
+      fora: inputFora.value
+    });
+
+  });
+
+dados.jogos = jogos;
       await fetch(URL_ENVIO, {
         method: "POST",
         body: JSON.stringify(dados)
