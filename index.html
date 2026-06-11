@@ -229,8 +229,16 @@ dados.jogos = jogos;
 
     } catch(err) {
 
-      alert(err);
-console.log(err);
+catch(err) {
+
+  console.error(err);
+
+  alert(
+    "Erro: " +
+    err.message
+  );
+
+}
 
     }
   });
