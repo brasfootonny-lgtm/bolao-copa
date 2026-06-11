@@ -220,15 +220,14 @@ document
   });
 
 dados.jogos = jogos;
+      
 await fetch(URL_ENVIO, {
   method: "POST",
   mode: "no-cors",
   body: JSON.stringify(dados)
 });
 
-console.log(texto);
-
-      alert("Palpite enviado com sucesso!");
+alert("Palpite enviado com sucesso!");
 
 } catch(err) {
 
